@@ -8,6 +8,7 @@ using ChatSample.Entities;
 using ChatSample.Helpers;
 using ChatSample.IServices;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 
 namespace ChatSample.Services {
@@ -23,9 +24,10 @@ namespace ChatSample.Services {
         public User Authenticate (string username, string password) {
             var user = _users.SingleOrDefault (u => u.Username == username && u.Password == password);
             if (user == null)
-                throw new KeyNotFoundException ();
+                return null;
             var tokenHandler = new JwtSecurityTokenHandler ();
             var key = Encoding.ASCII.GetBytes (_appSettings.Secret);
+            IdentityModelEventSource.ShowPII = true;
             var tokenDescriptor = new SecurityTokenDescriptor {
                 Subject = new ClaimsIdentity (new Claim[] {
                 new Claim (ClaimTypes.Name, user.Id.ToString ())

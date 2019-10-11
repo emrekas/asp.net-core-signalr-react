@@ -1,12 +1,14 @@
 import React from "react";
-import "./App.css";
 import { HubConnectionBuilder } from "@aspnet/signalr";
 
-class App extends React.Component {
+import { authenticationService } from "../_services";
+
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      currentUser: authenticationService.currentUserValue,
       connection: new HubConnectionBuilder()
         .withUrl("http://localhost:50704/chat")
         .build(),
@@ -15,7 +17,6 @@ class App extends React.Component {
       userName: ""
     };
   }
-
   componentDidMount() {
     this.setState(
       {
@@ -51,17 +52,19 @@ class App extends React.Component {
       this.state.message
     );
   };
-
   render() {
+    const currentUser = this.state.currentUser;
     const listItems = this.state.messages.map((item, key) => (
       <li key={key}>
         <strong>{item.name} : </strong>
         {item.message}
       </li>
     ));
-
     return (
-      <div className="container">
+      <div>
+        <h1>Hi {currentUser.firstName}!</h1>
+        <p>You're logged in with React & JWT!!</p>
+        <h3>Users from secure api end point:</h3>
         <input type="text" onChange={this.handleChange} />
         <input
           type="button"
@@ -74,4 +77,5 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+
+export { HomePage };

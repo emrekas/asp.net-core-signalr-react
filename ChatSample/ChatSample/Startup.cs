@@ -16,6 +16,7 @@ namespace ChatSample {
         public IConfiguration Configuration { get; }
         public void ConfigureServices (IServiceCollection services) {
             services.AddCors ();
+            services.AddControllers ();
             services.AddSignalR ();
 
             // configure strongly typed settings objects
@@ -48,6 +49,7 @@ namespace ChatSample {
 
         [System.Obsolete]
         public void Configure (IApplicationBuilder app, IHostingEnvironment env) {
+            app.UseRouting ();
             if (env.IsDevelopment ()) {
                 app.UseDeveloperExceptionPage ();
             }
