@@ -1,16 +1,20 @@
 import React from "react";
-import { HubConnectionBuilder } from "@aspnet/signalr";
+import { HubConnectionBuilder, LogLevel } from "@aspnet/signalr";
 
 import { authenticationService } from "../_services";
 
 class HomePage extends React.Component {
   constructor(props) {
     super(props);
+    console.log(authenticationService.currentUserValue);
 
     this.state = {
       currentUser: authenticationService.currentUserValue,
       connection: new HubConnectionBuilder()
-        .withUrl("http://localhost:50704/chat")
+        .withUrl("http://localhost:50704/hubs/chat", {
+          accessTokenFactory:()=> authenticationService.currentUserValue.token
+        })
+        .configureLogging(LogLevel.Information)
         .build(),
       messages: [],
       message: "",
@@ -54,6 +58,7 @@ class HomePage extends React.Component {
   };
   render() {
     const currentUser = this.state.currentUser;
+
     const listItems = this.state.messages.map((item, key) => (
       <li key={key}>
         <strong>{item.name} : </strong>
