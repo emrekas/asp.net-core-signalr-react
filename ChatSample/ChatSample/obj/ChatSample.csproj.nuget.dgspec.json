@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Emre KAS\\Desktop\\ChatSample\\ChatSample\\ChatSample.csproj": {}
+    "C:\\Users\\Emre KAS\\Desktop\\asp.net-core-signalr-react\\ChatSample\\ChatSample\\ChatSample.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Emre KAS\\Desktop\\ChatSample\\ChatSample\\ChatSample.csproj": {
+    "C:\\Users\\Emre KAS\\Desktop\\asp.net-core-signalr-react\\ChatSample\\ChatSample\\ChatSample.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Emre KAS\\Desktop\\ChatSample\\ChatSample\\ChatSample.csproj",
+        "projectUniqueName": "C:\\Users\\Emre KAS\\Desktop\\asp.net-core-signalr-react\\ChatSample\\ChatSample\\ChatSample.csproj",
         "projectName": "ChatSample",
-        "projectPath": "C:\\Users\\Emre KAS\\Desktop\\ChatSample\\ChatSample\\ChatSample.csproj",
+        "projectPath": "C:\\Users\\Emre KAS\\Desktop\\asp.net-core-signalr-react\\ChatSample\\ChatSample\\ChatSample.csproj",
         "packagesPath": "C:\\Users\\Emre KAS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Emre KAS\\Desktop\\ChatSample\\ChatSample\\obj\\",
+        "outputPath": "C:\\Users\\Emre KAS\\Desktop\\asp.net-core-signalr-react\\ChatSample\\ChatSample\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
