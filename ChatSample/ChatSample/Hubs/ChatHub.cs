@@ -7,6 +7,6 @@ namespace ChatSample.Hubs
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ChatHub : Hub
     {
-        public void Send(string name, string message)=> Clients.All.SendAsync("broadcastMessage", name, message);
+        public void Send(string name, string message) => Clients.All.SendAsync("broadcastMessage", name, message);
     }
 }

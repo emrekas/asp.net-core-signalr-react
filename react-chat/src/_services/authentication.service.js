@@ -2,6 +2,7 @@ import { BehaviorSubject } from "rxjs";
 
 // import config from "config";
 import { handleResponse } from "../_helpers";
+import { IIS_BASE_ADDRESS } from "../_helpers/constants";
 
 const currentUserSubject = new BehaviorSubject(
   JSON.parse(localStorage.getItem("currentUser"))
@@ -23,7 +24,7 @@ function login(username, password) {
     body: JSON.stringify({ username, password })
   };
 
-  return fetch(`http://localhost:50704/user/authenticate`, requestOptions)
+  return fetch(`${IIS_BASE_ADDRESS}user/authenticate`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes

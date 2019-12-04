@@ -15,7 +15,7 @@ namespace ChatSample.Services {
     public class UserService : IUserService {
         //TODO:Implement SQLite
         private List<User> _users = new List<User> {
-            new User { Username = "emrekas", FirstName = "emre", LastName = "kas", Password = "emrekas" }
+            new User { Username = "test", FirstName = "emre", LastName = "kas", Password = "test" }
         };
         private readonly AppSettings _appSettings;
         public UserService (IOptions<AppSettings> appSettings) {

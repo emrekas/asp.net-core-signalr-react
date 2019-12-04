@@ -33,6 +33,8 @@ class LoginPage extends React.Component {
             password: Yup.string().required("Password is required")
           })}
           onSubmit={({ username, password }, { setStatus, setSubmitting }) => {
+            console.log(username);
+            console.log(password);
             setStatus();
             authenticationService.login(username, password).then(
               user => {

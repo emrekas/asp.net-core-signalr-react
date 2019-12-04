@@ -2,6 +2,7 @@ import React from "react";
 import { HubConnectionBuilder, LogLevel } from "@aspnet/signalr";
 
 import { authenticationService } from "../_services";
+import { IIS_BASE_ADDRESS } from '../_helpers/constants';
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -11,8 +12,8 @@ class HomePage extends React.Component {
     this.state = {
       currentUser: authenticationService.currentUserValue,
       connection: new HubConnectionBuilder()
-        .withUrl("http://localhost:50704/hubs/chat", {
-          accessTokenFactory:()=> authenticationService.currentUserValue.token
+        .withUrl(IIS_BASE_ADDRESS + "hubs/chat", {
+          accessTokenFactory: () => authenticationService.currentUserValue.token
         })
         .configureLogging(LogLevel.Information)
         .build(),

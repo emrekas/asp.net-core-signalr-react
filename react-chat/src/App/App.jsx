@@ -34,7 +34,7 @@ class App extends React.Component {
                         <nav className="navbar navbar-expand navbar-dark bg-dark">
                             <div className="navbar-nav">
                                 <Link to="/" className="nav-item nav-link">Home</Link>
-                                <a onClick={this.logout} className="nav-item nav-link">Logout</a>
+                                <a href="#" onClick={this.logout} className="nav-item nav-link">Logout</a>
                             </div>
                         </nav>
                     }
